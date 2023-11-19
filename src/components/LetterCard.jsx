@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import defaultImg from "../assets/avatar.png";
 import Avatar from "./common/Avatar";
+import { useLetterContext } from "../context/LetterContext";
 
 function LetterCard({ letter }) {
   console.log(letter);
   const { id, nickname, createdAt, content } = letter;
+  const { setMember } = useLetterContext();
   const navigate = useNavigate();
 
   return (

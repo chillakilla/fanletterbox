@@ -1,11 +1,13 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useState } from "react";
+import React, { useState } from "react";
 import Avatar from "../components/common/Avatar";
 import Button from "components/common/Button";
+import { useLetterContext } from "../context/LetterContext";
 
-export default function Detail({ letters, setLetters }) {
+export default function Detail() {
   const { id } = useParams();
+  const { letters, setLetters } = useLetterContext();
   const [isEditing, setIsEditing] = useState(false);
   const [editingText, setEditingText] = useState("");
 

@@ -1,29 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import LetterList from "components/LetterList";
 import Form from "../components/Form";
 import styled from "styled-components";
+import { useLetterContext } from "context/LetterContext";
 
-function Home({ letters, setLetters }) {
-  const [member, setMember] = useState("카리나");
+function Home() {
+  const { letters, setLetters, member, setMember } = useLetterContext();
   const navigate = useNavigate();
 
   return (
     <Container>
       <Header member={member} setMember={setMember} />
-      <Form
-        letters={letters}
-        setLetters={setLetters}
-        member={member}
-        setMember={setMember}
-      />
-      <LetterList
-        letters={letters}
-        setLetters={setLetters}
-        member={member}
-        setMember={setMember}
-      />
+      <Form />
+      <LetterList />
     </Container>
   );
 }

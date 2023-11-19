@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import { useLetterContext } from "../context/LetterContext";
 
-function Header({ member, setMember }) {
+function Header() {
+  const { member, setMember } = useLetterContext();
   const handleTabClick = (member) => {
     setMember(member);
   };

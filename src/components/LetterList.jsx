@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import LetterCard from "./LetterCard";
+import { useLetterContext } from "../context/LetterContext";
 
-function LetterList({ letters, setLetters, member }) {
+function LetterList() {
+  const { letters, member } = useLetterContext();
   const lettersForOne = letters.filter((letter) => letter.writedTo === member);
-  console.log(lettersForOne);
-  console.log(letters);
 
   return (
     <Container>

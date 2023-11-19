@@ -2,8 +2,10 @@ import react, { useState } from "react";
 import styled from "styled-components";
 import { v4 as uuid } from "uuid";
 import Button from "./common/Button";
+import { useLetterContext } from "../context/LetterContext";
 
-export default function Form({ letters, setLetters, member, setMember }) {
+export default function Form() {
+  const { letters, setLetters, member, setMember } = useLetterContext();
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
   const [fileObj, setFileObj] = useState(null);
