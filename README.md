@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# fanletterbox
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### redux는 미완성입니다. 고멘나사이
 
-## Available Scripts
+1.  styled-components 는 CSS in JS 라이브러리 중 하나로 리액트 개발 시 자주 사용되는 방법입니다. 본인이 생각하는 styled-components의 장점과 단점을 말씀해 주세요.
 
-In the project directory, you can run:
+- javascript를 사용할 수 있음 if else 같은 걸 사용해서 좀더 동적?인 디자인 가능.
+- 규모가 큰 작업을 할 때 CSS보다 관리가 쉬울 것 같음.
+- 컴포넌트끼리 코드 충돌할 가능성이 비교적 적은 것 같음.
 
-### `yarn start`
+2.  props-drilling으로 전체를 먼저 구현하신 다음 context api와 redux로 리팩터링해서 전역 상태 관리를 경험해 보셨습니다. 어떤 상태들을 전역 상태로 관리하셨나요? context나 redux로 전역상태를 관리해봤을 때 어떤 문제를 해결해준다고 느끼셨나요?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- context의 경우, 내가 단순 노동을 하고 있는데 그 단순 노동을 기계로 인해, 좀 더 수월하게 작업한다고 느낌.
+- redux의 경우, (미완성이지만) 사람으로 치자면, 굉장히 일 잘한다. 라는 느낌을 받을 정도로 효율적이라고 느낌.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> 전역 상태로 관리한 것들은 거의 지속적으로 사용하는 것들.
+> letters, member, 동작 수행 함수등이 그것들에 속함.
+> 약간 비유하자면...산을 빙 돌아서 가야만 했던 어떤 길에 터널을 뚫는다거나, 바다를 빙 돌아서 가야만 했던 길에 다리를 놔서 더 빠르고 효율적으로 이동할 수 있게끔 해주는 것 같다고 느낌.
+> 불필요한 메모리 사용, 불필요한 동작 하나 하나를 줄임.
+> 불필요한 것이 줄어든 다는 것은 결국 쾌적해진다는 말이라고 생각.
