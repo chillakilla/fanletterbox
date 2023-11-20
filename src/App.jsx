@@ -5,12 +5,7 @@ import Router from "shared/Router";
 import LetterList from "./components/LetterList";
 
 function App() {
-  return (
-    <>
-      <Router />
-      <GlobalStyle />
-    </>
-  );
+  return <Router />;
 }
 
 export default App;

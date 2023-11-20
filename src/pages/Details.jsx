@@ -1,13 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Avatar from "../components/common/Avatar";
 import Button from "components/common/Button";
-import { useLetterContext } from "../context/LetterContext";
+import { setLetters } from "../redux/modules/letterAction";
 
 export default function Detail() {
   const { id } = useParams();
-  const { letters, setLetters } = useLetterContext();
+  const dispatch = useDispatch();
+  const letters = useSelector((state) => state.letters);
+
   const [isEditing, setIsEditing] = useState(false);
   const [editingText, setEditingText] = useState("");
 
@@ -21,9 +24,7 @@ export default function Detail() {
     if (!answer) return;
 
     navigate("/");
-    setLetters((prevLetters) =>
-      prevLetters.filter((letter) => letter.id !== id)
-    );
+    dispatch(setLetters(letters.filter((letter) => letter.id !== id)));
   };
 
   const handleEdit = () => {
@@ -32,12 +33,13 @@ export default function Detail() {
     const answer = window.confirm("이대로 수정하시겠습니까?");
     if (!answer) return;
 
-    setLetters((prevLetters) => {
-      console.log(prevLetters);
-      return [...prevLetters].map((letter) =>
-        letter.id === id ? { ...letter, content: editingText } : letter
-      );
-    });
+    dispatch(
+      setLetters(
+        letters.map((letter) =>
+          letter.id === id ? { ...letters, content: editingText } : letter
+        )
+      )
+    );
     navigate("/");
   };
 

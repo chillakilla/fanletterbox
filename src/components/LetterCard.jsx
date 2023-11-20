@@ -3,16 +3,22 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import defaultImg from "../assets/avatar.png";
 import Avatar from "./common/Avatar";
-import { useLetterContext } from "../context/LetterContext";
+import { setMember } from "../redux/modules/memberAction";
+import { useDispatch } from "react-redux";
 
 function LetterCard({ letter }) {
   console.log(letter);
   const { id, nickname, createdAt, content } = letter;
-  const { setMember } = useLetterContext();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    dispatch(setMember(letter.writedTo));
+    navigate(`/details/${id}`);
+  };
+
   return (
-    <Letter id={id} onClick={() => navigate(`/details/${id}`)}>
+    <Letter id={id} onClick={handleClick}>
       <Writer>
         <Avatar image={defaultImg} alt="Default" />
         <NameTime>

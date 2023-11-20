@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
-import { useLetterContext } from "../context/LetterContext";
+import { useDispatch, useSelector } from "react-redux";
+import { setMember } from "../redux/modules/memberAction";
 
 function Header() {
-  const { member, setMember } = useLetterContext();
-  const handleTabClick = (member) => {
-    setMember(member);
+  const dispatch = useDispatch();
+  const member = useSelector((state) => state.member);
+  const handleTabClick = (newMember) => {
+    dispatch(setMember(newMember));
   };
 
   return (

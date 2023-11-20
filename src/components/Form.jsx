@@ -2,10 +2,18 @@ import react, { useState } from "react";
 import styled from "styled-components";
 import { v4 as uuid } from "uuid";
 import Button from "./common/Button";
-import { useLetterContext } from "../context/LetterContext";
+import { useDispatch, useSelector } from "react-redux";
+import { ADD_LETTER } from "../redux/modules/letterAction";
+import {
+  SET_MEMBER,
+  setMember as setMemberAction,
+} from "../redux/modules/memberAction";
 
 export default function Form() {
-  const { letters, setLetters, member, setMember } = useLetterContext();
+  const dispatch = useDispatch();
+  const letters = useSelector((state) => state.letters);
+  const member = useSelector((state) => state.member);
+
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
   const [fileObj, setFileObj] = useState(null);
@@ -25,12 +33,13 @@ export default function Form() {
     };
     console.log(newLetter);
     console.log([...letters, newLetter]);
-    setLetters([...letters, newLetter]);
+    dispatch(ADD_LETTER(newLetter));
     setNickname("");
     setContent("");
   };
   const selectMember = (event) => {
-    setMember(event.target.value);
+    const selectedMember = event.target.value;
+    dispatch(SET_MEMBER(selectedMember));
   };
 
   return (

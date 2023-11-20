@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import LetterCard from "./LetterCard";
-import { useLetterContext } from "../context/LetterContext";
+import { useSelector } from "react-redux";
 
 function LetterList() {
-  const { letters, member } = useLetterContext();
-  const lettersForOne = letters.filter((letter) => letter.writedTo === member);
+  const letters = useSelector((state) => state.letters);
+  const member = useSelector((state) => state.member);
+
+  const lettersForOne = letters.map((letter) => letter.writedTo === member);
 
   return (
     <Container>
